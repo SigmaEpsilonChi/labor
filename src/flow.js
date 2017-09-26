@@ -42,7 +42,7 @@ const draw = (div, data) => {
   var nodeRadius = flowWidth/14;
   var nodeWidth = 8*adj;
 
-  var arrowMin = 0;
+  var arrowMin = 1;
   var arrowMax = 32*adj;
   var arrowRange = [arrowMin, arrowMax];
 

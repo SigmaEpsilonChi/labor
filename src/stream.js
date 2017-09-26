@@ -151,6 +151,17 @@ const drawStream = (div, data, setTime) => {
   }).on('mouseout', (d, i) => {
     // setTime(null);
   });
+
+  svg.call(d3.drag().on('drag', (d, i) => {
+    let m = (d3.touch(svg.node()) ? d3.touch(svg.node()) : d3.mouse(svg.node()))[0];
+    let t = streamScaleX.invert(m);
+    t = new Date(t.getFullYear(), t.getMonth());
+    // t.setDate(1);
+    console.log("Drag: %s", t);
+    nowBar.attr('transform', 'translate('+m+', 0)');
+    setTime(t);
+  }));
+  
 }
 
 export default drawStream;
