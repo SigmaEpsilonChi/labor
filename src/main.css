@@ -1,0 +1,101 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+svg {
+  margin: 0;
+  padding: 0;
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  flex-basis: 1000px;
+  flex-shrink: 1;
+  flex-grow: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+.content > .title {
+  font-size: 48px;
+
+  margin: 16px auto;
+  padding: 0;
+
+  text-align: center;
+}
+
+.content > .description {
+  font-size: 24px;
+
+  margin: 0 32px 16px 32px;
+  padding: 0;
+
+  align-self: center;
+}
+
+.flows {
+  flex-shrink: 1;
+  flex-grow: 0;
+  width: 80%;
+
+  padding: 0;
+  margin: 0;
+}
+
+.streams {
+  flex-shrink: 1;
+  flex-grow: 0;
+  width: 70%;
+
+  padding: 0;
+  margin: 0;
+
+}
+
+.streams .chart {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  /*border: 1px dashed #ddd;*/
+  border-radius: 16px;
+}
+
+.streams .axis {
+  width: 100%;
+  padding: 0;
+  margin: 2px 0 0 0;
+
+  /*border: 1px dashed #ddd;*/
+}
+
+.nodeName {
+  fill: black;
+}
+
+.arrow {
+  /*opacity: 0.5;*/
+}
