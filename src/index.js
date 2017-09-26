@@ -22,7 +22,7 @@ var description = content
   .append('div')
     .attr('class', 'description')
     .html(
-      "Churn in the US labor force. Work in progress, do not share.<br>"+
+      "Churn in the US labor force. Mouse/touch this bar to explore.<br>"+
       ''
     );
 

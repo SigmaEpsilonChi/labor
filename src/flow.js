@@ -34,21 +34,21 @@ const draw = (div, data) => {
   var arrowData = [];
 
   var flowWidth = div.node().clientWidth;
-  var flowHeight = flowWidth;
+  var flowHeight = flowWidth*19/20;
 
   var adj = flowWidth/1000;
 
-  var ringMid = flowWidth*3/7;
-  var nodeRadius = flowWidth/14;
+  var ringMid = flowWidth*2/5;
+  var nodeRadius = flowWidth/11;
   var nodeWidth = 8*adj;
 
   var arrowMin = 1;
-  var arrowMax = 32*adj;
+  var arrowMax = 48*adj;
   var arrowRange = [arrowMin, arrowMax];
 
   var arrowWidth = 4*adj;
-  var arrowGap = 8*adj;
-  var arrowInset = 8*adj;
+  var arrowGap = 12*adj;
+  var arrowInset = 12*adj;
 
   var pi = Math.PI;
   var tau = Math.PI*2;
@@ -82,8 +82,8 @@ const draw = (div, data) => {
   var arrowShape = d3.arc()
     // .startAngle(function(d) { return d.node0.index/3*tau-tau/12 + (d.clockwise ? 0 : tau*2/3); })
     // .endAngle(function(d) { return d.node0.index/3*tau-tau/12+tau/3 + (d.clockwise ? 0 : tau*2/3); })
-    .startAngle(function(d) { return tau/12 + (d.clockwise ? 0 : tau*2/3+tau/24); })
-    .endAngle(function(d) { return tau/12+tau/3 + (d.clockwise ? -tau/24 : tau*2/3); })
+    .startAngle(function(d) { return tau/12 + (d.clockwise ? 0 : tau*2/3+tau/18); })
+    .endAngle(function(d) { return tau/12+tau/3 + (d.clockwise ? -tau/18 : tau*2/3); })
     .innerRadius(function(d) {return (d.clockwise ? ringMid+arrowGap+d.offset : ringMid-d.width-arrowGap-d.offset) - arrowInset; })
     .outerRadius(function(d) { return (d.clockwise ? ringMid+d.width+arrowGap+d.offset : ringMid-arrowGap-d.offset) - arrowInset; })
     .cornerRadius(0);
@@ -91,8 +91,8 @@ const draw = (div, data) => {
   var arrowBackgroundShape = d3.arc()
     // .startAngle(function(d) { return d.node0.index/3*tau-tau/12; })
     // .endAngle(function(d) { return d.node0.index/3*tau-tau/12+tau/3; })
-    .startAngle(function(d) { return tau/12 + (d.clockwise ? 0 : tau*2/3+tau/24); })
-    .endAngle(function(d) { return tau/12+tau/3 + (d.clockwise ? -tau/24 : tau*2/3); })
+    .startAngle(function(d) { return tau/12 + (d.clockwise ? 0 : tau*2/3+tau/18); })
+    .endAngle(function(d) { return tau/12+tau/3 + (d.clockwise ? -tau/18 : tau*2/3); })
     .innerRadius(function(d) {return (d.clockwise ? ringMid+arrowGap : ringMid-arrowMax-arrowGap) - arrowInset; })
     .outerRadius(function(d) { return (d.clockwise ? ringMid+arrowMax+arrowGap : ringMid-arrowGap) - arrowInset; })
     .cornerRadius(0);
@@ -119,17 +119,17 @@ const draw = (div, data) => {
   var employmentDescriptionText = flowDescriptionText
     .append('tspan')
       .attr('x', 0)
-      .attr('dy', flowDescriptionSize*1.1);
+      .attr('dy', flowDescriptionSize*1.2);
       
   var unemploymentDescriptionText = flowDescriptionText
     .append('tspan')
       .attr('x', 0)
-      .attr('dy', flowDescriptionSize*1.1);
+      .attr('dy', flowDescriptionSize*1.2);
       
   var nonlaborDescriptionText = flowDescriptionText
     .append('tspan')
       .attr('x', 0)
-      .attr('dy', flowDescriptionSize*1.1);
+      .attr('dy', flowDescriptionSize*1.2);
 
   var arrowGroup = flowGroup.append('g')
     .attr('class', 'arrows');
@@ -260,7 +260,7 @@ const draw = (div, data) => {
       // "M0,-5L10,0L0,5"
 
       newArrow.append('g')
-          .attr('transform', d => 'rotate('+(d.clockwise ? 45 : 195)+')')
+          .attr('transform', d => 'rotate('+(d.clockwise ? 40 : 200)+')')
         .append('g')
           .attr('transform', d => 'translate('+d.tipRadius+'),rotate('+(d.clockwise ? 90 : -90)+')')
         .append('path')
@@ -268,7 +268,7 @@ const draw = (div, data) => {
           .attr('fill', '#eee');
 
       newArrow.append('g')
-          .attr('transform', d => 'rotate('+(d.clockwise ? 45 : 195)+')')
+          .attr('transform', d => 'rotate('+(d.clockwise ? 40 : 200)+')')
         .append('g')
           .attr('transform', d => 'translate('+d.tipRadius+'),rotate('+(d.clockwise ? 90 : -90)+')')
         .append('path')
